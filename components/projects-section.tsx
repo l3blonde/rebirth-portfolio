@@ -10,37 +10,37 @@ const projects = [
     {
         id: 1,
         title: "Dream Your Bag",
-        description:
-            "An interactive website with a 3D bag builder and AR and VR features where users create a personalised bag by uploading meaningful images, choosing colours and styles, and transforming personal memories into a unique Jacquemus bag.",
-        tags: ["UX/UI", "Branding", "Motion", "AR/VR"],
-        video: "/images/project-1-preview.mp4",
+        description: "Interactive 3D bag builder with AR/VR features for personalized Jacquemus bags.",
+        tags: ["UX/UI", "AR/VR"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-desktop.mp4",
         link: "https://purse-webxr.vercel.app",
     },
     {
         id: 2,
         title: "BlueWave",
-        description:
-            "An interactive mobile app designed for divers where users explore dive locations on a map, discover marine species at each spot, and connect with the underwater world through shared knowledge and visual exploration.",
-        tags: ["UX/UI", "Product Design", "Interaction Design", "Mobile App"],
-        video: "/images/project-2-preview.mp4",
+        description: "Mobile app for divers to explore locations, discover marine species, and connect underwater.",
+        tags: ["UX/UI", "Mobile"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-mobile.mp4",
+        videoDesktop: "/images/project-2-desktop.mp4", // TODO: Replace with Vercel Blob URL when ready
         link: "https://dive-app-omega.vercel.app",
     },
     {
         id: 3,
         title: "Marine AI Recognition",
-        description:
-            "An AI powered platform where users upload a photo of marine life and receive species identification, habitat details, fun facts, depth range, size, and safety information using a custom trained machine learning model.",
-        tags: ["AI/ML", "Data Training", "Python", "Computer Vision"],
-        video: "/images/project-3-preview.mp4",
+        description: "AI platform identifying marine species with habitat details and safety information.",
+        tags: ["AI/ML", "Python"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-desktop.mp4",
         link: "https://marine-species-spotting.vercel.app",
     },
     {
         id: 4,
         title: "Sereno",
-        description:
-            "A progressive web app created for Porsche electric vehicle drivers that offers guided breathing exercises during charging time, helping users relax, refocus, and turn waiting moments into a calm wellbeing experience.",
-        tags: ["UX/UI", "Web Development", "Next.js", "Node.js"],
-        video: "/images/project-4-preview.mp4",
+        description: "PWA for Porsche EV drivers offering guided breathing exercises during charging.",
+        tags: ["UX/UI", "Next.js"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-4-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-4-desktop.mp4",
         link: "https://sereno-app-three.vercel.app",
     },
 ]
@@ -69,7 +69,6 @@ export default function ProjectsSection() {
     return (
         <section id="projects" className="relative py-16 md:py-24 bg-[#f5f1ec]">
             <div className="max-w-[100vw] mx-auto px-4 md:px-8">
-                {/* Section Header with Navigation Arrows */}
                 <div className="max-w-7xl mx-auto mb-12 md:mb-16 flex items-center justify-between">
                     <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-wider md:tracking-[0.2em] text-[#2e2a2b]">
                         FEATURED PROJECTS
@@ -115,16 +114,15 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
 
     return (
         <>
-            {/* Added hover lift and shadow effect */}
             <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex-shrink-0 snap-center w-[85vw] aspect-[3/4] md:w-[90vw] md:aspect-video lg:w-[75vw] rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_20px_60px_-15px_rgba(46,42,43,0.3)]"
+                whileHover={{ y: -12, scale: 1.03 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="relative flex-shrink-0 snap-center w-[85vw] aspect-[9/16] md:w-[90vw] md:aspect-[16/10] lg:w-[75vw] lg:aspect-[16/11] rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_70px_-20px_rgba(46,42,43,0.4)]"
             >
-                {/* Video Background - Full Size */}
                 <div className="absolute inset-0">
                     <VideoPreview
-                        videoSrc={project.video}
+                        videoSrcMobile={project.videoMobile}
+                        videoSrcDesktop={project.videoDesktop}
                         isFirstCard={isFirstCard || false}
                         onVideoClick={() => setIsVideoModalOpen(true)}
                     />
@@ -138,13 +136,12 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                         duration: 0.8,
                         ease: [0.22, 1, 0.36, 1] as const,
                     }}
-                    className="absolute bottom-0 right-0 w-[75%] md:w-[45%] lg:w-[40%] bg-[#bd9b60] rounded-tl-3xl p-6 md:p-8 shadow-2xl"
+                    className="absolute bottom-0 right-0 w-[85%] h-auto md:w-[50%] lg:w-[42%] bg-[#bd9b60] rounded-tl-3xl p-4 md:p-8 shadow-2xl flex flex-col justify-between min-h-[280px] md:min-h-[320px]"
                 >
-                    {/* Curved Text */}
-                    <div className="flex justify-center mb-5 md:mb-6">
-                        <svg viewBox="0 0 280 70" className="w-56 h-14 md:w-64 md:h-16 lg:w-72 lg:h-20">
+                    <div className="flex justify-center mb-3 md:mb-5">
+                        <svg viewBox="0 0 280 70" className="w-48 h-12 md:w-64 md:h-16 lg:w-72 lg:h-20">
                             <path id={`curve-${project.id}`} d="M 20 55 Q 140 10 260 55" fill="transparent" />
-                            <text className="text-base md:text-lg lg:text-xl fill-[#2e2a2b] font-serif tracking-[0.15em]">
+                            <text className="text-sm md:text-lg lg:text-xl fill-[#2e2a2b] font-serif tracking-[0.15em]">
                                 <textPath href={`#curve-${project.id}`} startOffset="50%" textAnchor="middle">
                                     project {["one", "two", "three", "four"][project.id - 1]}
                                 </textPath>
@@ -152,19 +149,20 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                         </svg>
                     </div>
 
-                    {/* Project Title */}
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif text-[#2e2a2b] mb-3 md:mb-4 text-center leading-tight">
+                    <h3 className="text-xl md:text-3xl lg:text-4xl font-serif text-[#2e2a2b] mb-2 md:mb-3 text-center leading-tight">
                         {project.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-[#2e2a2b] text-sm md:text-base leading-relaxed mb-4 md:mb-5 text-center line-clamp-3">
+                    <p className="text-[#2e2a2b] text-xs md:text-base leading-relaxed mb-3 md:mb-4 text-center line-clamp-2">
                         {project.description}
                     </p>
 
-                    <div className="flex flex-wrap justify-center gap-2 mb-5 md:mb-6">
+                    <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-3 md:mb-5">
                         {project.tags.map((tag, index) => (
-                            <span key={index} className="bg-[#e5d4b8] rounded-full px-4 py-1.5 text-[#2e2a2b] text-xs md:text-sm">
+                            <span
+                                key={index}
+                                className="bg-[#e5d4b8] rounded-full px-3 py-1 text-[#2e2a2b] text-xs md:text-sm whitespace-nowrap"
+                            >
                 {tag}
               </span>
                         ))}
@@ -174,14 +172,13 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 bg-[#e5d4b8] text-[#2e2a2b] text-sm md:text-base font-medium py-2.5 px-6 rounded-full hover:gap-3 transition-all duration-300 shadow-md"
+                        className="flex items-center justify-center gap-2 bg-[#e5d4b8] text-[#2e2a2b] text-xs md:text-base font-medium py-2 md:py-2.5 px-4 md:px-6 rounded-full hover:gap-3 transition-all duration-300 shadow-md"
                     >
-                        website link <ArrowUpRight className="w-4 h-4" />
+                        website link <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
                     </Link>
                 </motion.div>
             </motion.div>
 
-            {/* Fullscreen Video Modal */}
             <AnimatePresence>
                 {isVideoModalOpen && (
                     <motion.div
@@ -206,8 +203,9 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                                 <X className="w-8 h-8" />
                             </button>
 
-                            <video ref={videoRef} autoPlay controls loop className="w-full h-full rounded-lg">
-                                <source src={project.video} type="video/mp4" />
+                            <video ref={videoRef} autoPlay controls loop preload="none" className="w-full h-full rounded-lg">
+                                <source src={project.videoDesktop} type="video/mp4" media="(min-width: 768px)" />
+                                <source src={project.videoMobile} type="video/mp4" />
                             </video>
                         </motion.div>
                     </motion.div>

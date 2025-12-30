@@ -69,6 +69,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 body: JSON.stringify(formData),
             })
 
+            const contentType = response.headers.get("content-type")
+            if (!contentType || !contentType.includes("application/json")) {
+                toast.error("Server error. Please try again later.")
+                return
+            }
+
             const data = await response.json()
 
             if (response.ok) {
@@ -81,8 +87,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             } else {
                 toast.error(data.error || "Failed to send message. Please try again.")
             }
-        } catch (error) {
-            console.error("[v0] Contact form submission error:", error)
+        } catch {
             toast.error("Something went wrong. Please try again later.")
         } finally {
             setIsSubmitting(false)
@@ -92,7 +97,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
-        // Clear error when user starts typing
         if (errors[name]) {
             setErrors({ ...errors, [name]: "" })
         }
@@ -102,7 +106,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <AnimatePresence>
             {isOpen && (
                 <>
-                    {/* Backdrop with blur */}
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -111,7 +114,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         className="fixed inset-0 bg-volcanic-ash/60 backdrop-blur-sm z-50"
                     />
 
-                    {/* Modal */}
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-6">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -120,7 +122,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                             transition={{ type: "spring", duration: 0.5 }}
                             className="bg-blanc rounded-[12px] p-8 md:p-12 max-w-lg w-full shadow-2xl relative"
                         >
-                            {/* Close button */}
                             <button
                                 onClick={onClose}
                                 className="absolute top-6 right-6 text-volcanic-ash/60 hover:text-volcanic-ash transition-colors"
@@ -131,12 +132,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 </svg>
                             </button>
 
-                            {/* Modal content */}
                             <h2 className="text-3xl font-serif text-volcanic-ash mb-2">Work With Me</h2>
                             <p className="text-volcanic-ash/70 mb-8">Let&apos;s create something amazing together.</p>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                {/* Name field */}
                                 <div>
                                     <label htmlFor="name" className="block text-sm font-sans text-volcanic-ash mb-2">
                                         Name <span className="text-red-500">*</span>
@@ -162,7 +161,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     )}
                                 </div>
 
-                                {/* Email field */}
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-sans text-volcanic-ash mb-2">
                                         Email <span className="text-red-500">*</span>
@@ -188,7 +186,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     )}
                                 </div>
 
-                                {/* Message field */}
                                 <div>
                                     <label htmlFor="message" className="block text-sm font-sans text-volcanic-ash mb-2">
                                         Message <span className="text-red-500">*</span>
@@ -215,7 +212,6 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                     <p className="text-volcanic-ash/50 text-xs mt-1">{formData.message.length}/1000 characters</p>
                                 </div>
 
-                                {/* Submit button */}
                                 <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
                                     {isSubmitting ? "Sending..." : "Send Message"}
                                 </Button>

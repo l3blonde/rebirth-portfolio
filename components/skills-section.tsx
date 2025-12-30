@@ -83,7 +83,7 @@ export default function SkillsSection() {
                     </div>
                 </div>
 
-                {/* Desktop Layout */}
+                {/* Desktop layout */}
                 <div className="hidden md:grid md:grid-cols-[55%_45%] min-h-screen">
                     <div className="flex flex-col justify-center px-12 lg:px-16 py-24">
                         <h2 className="text-6xl lg:text-7xl font-serif text-[#f7f7f7] mb-10 tracking-wider break-words">

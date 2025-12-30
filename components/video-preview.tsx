@@ -4,14 +4,20 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 import type React from "react"
 
-interface VideoPreviewProps {
-    videoSrc: string
+export interface VideoPreviewProps {
+    videoSrcMobile: string
+    videoSrcDesktop: string
     isFirstCard: boolean
     onVideoClick: () => void
 }
 
-export default function VideoPreview({ videoSrc, isFirstCard, onVideoClick }: VideoPreviewProps) {
-    const [isInView, setIsInView] = useState(false)
+export default function VideoPreview({
+                                         videoSrcMobile,
+                                         videoSrcDesktop,
+                                         isFirstCard,
+                                         onVideoClick,
+                                     }: VideoPreviewProps) {
+    const [isInView, setIsInView] = useState(() => isFirstCard)
     const [prefersReducedMotion] = useState(() => {
         if (typeof window !== "undefined") {
             return window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -52,12 +58,6 @@ export default function VideoPreview({ videoSrc, isFirstCard, onVideoClick }: Vi
         }
 
         return () => observer.disconnect()
-    }, [isFirstCard])
-
-    useEffect(() => {
-        if (isFirstCard) {
-            setIsInView(true)
-        }
     }, [isFirstCard])
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -175,15 +175,10 @@ export default function VideoPreview({ videoSrc, isFirstCard, onVideoClick }: Vi
                         animate={isInView ? "visible" : "hidden"}
                         onClick={onVideoClick}
                     >
-                        <video
-                            ref={videoRef}
-                            src={videoSrc}
-                            className="w-full h-full object-cover"
-                            loop
-                            muted
-                            playsInline
-                            preload="metadata"
-                        />
+                        <video ref={videoRef} className="w-full h-full object-cover" loop muted playsInline preload="none">
+                            <source src={videoSrcDesktop} type="video/mp4" media="(min-width: 768px)" />
+                            <source src={videoSrcMobile} type="video/mp4" />
+                        </video>
                     </motion.div>
                 </motion.div>
             </motion.div>
