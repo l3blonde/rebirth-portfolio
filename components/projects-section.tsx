@@ -1,9 +1,11 @@
 "use client"
 
+import type React from "react"
+
 import { useRef, useState } from "react"
 import Link from "next/link"
 import { ArrowUpRight, X, ChevronLeft, ChevronRight } from "lucide-react"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import VideoPreview from "./video-preview"
 
 const projects = [
@@ -14,13 +16,13 @@ const projects = [
         tags: ["UX/UI", "AR/VR"],
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-desktop.mp4",
-        link: "https://purse-webxr.vercel.app",
+        link: "#",
     },
     {
         id: 2,
         title: "BlueWave",
-        description: "Mobile app for divers to explore locations and discover marine species.",
-        tags: ["Node.js", "Mapbox"],
+        description: "Mobile app for divers to explore locations, discover marine species, and connect underwater.",
+        tags: ["UX/UI", "Mobile"],
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-desktop.mp4",
         link: "https://dive-app-omega.vercel.app",
@@ -42,6 +44,15 @@ const projects = [
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-4-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-4-desktop.mp4",
         link: "https://sereno-app-three.vercel.app",
+    },
+    {
+        id: 6,
+        title: "Pauline",
+        description: "Pauline is an AI agent app designed to help elderly people feel safe, never lost, and never alone.",
+        tags: ["UX/UI", "AI", "Python"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-6-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-6-desktop.mp4",
+        link: "#",
     },
 ]
 
@@ -112,21 +123,64 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
     const videoRef = useRef<HTMLVideoElement>(null)
 
+    const cardRef = useRef<HTMLDivElement>(null)
+    const mouseX = useMotionValue(0)
+    const mouseY = useMotionValue(0)
+
+    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), {
+        stiffness: 400,
+        damping: 30,
+    })
+    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), {
+        stiffness: 400,
+        damping: 30,
+    })
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!cardRef.current) return
+        const rect = cardRef.current.getBoundingClientRect()
+        const x = (e.clientX - rect.left) / rect.width - 0.5
+        const y = (e.clientY - rect.top) / rect.height - 0.5
+        mouseX.set(x)
+        mouseY.set(y)
+    }
+
+    const handleMouseLeave = () => {
+        mouseX.set(0)
+        mouseY.set(0)
+    }
+
     return (
         <>
             <motion.div
+                ref={cardRef}
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                    rotateX,
+                    rotateY,
+                    transformStyle: "preserve-3d",
+                }}
                 whileHover={{ y: -12, scale: 1.03 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex-shrink-0 snap-center w-[85vw] aspect-[9/16] md:w-[90vw] md:aspect-[16/10] lg:w-[75vw] lg:aspect-[16/11] rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_25px_70px_-20px_rgba(46,42,43,0.4)]"
+                className="relative flex-shrink-0 snap-center w-[85vw] aspect-[9/16] md:w-[90vw] md:aspect-[16/10] lg:w-[75vw] lg:aspect-[16/11] rounded-2xl overflow-hidden shadow-[0_25px_50px_-12px_rgba(46,42,43,0.3)] hover:shadow-[0_25px_70px_-20px_rgba(46,42,43,0.4)] transition-all duration-400"
             >
-                <div className="absolute inset-0">
+                <motion.div
+                    style={{
+                        x: useTransform(mouseX, [-0.5, 0.5], [10, -10]),
+                        y: useTransform(mouseY, [-0.5, 0.5], [10, -10]),
+                        transformStyle: "preserve-3d",
+                        transform: "translateZ(20px)",
+                    }}
+                    className="absolute inset-0"
+                >
                     <VideoPreview
                         videoSrcMobile={project.videoMobile}
                         videoSrcDesktop={project.videoDesktop}
                         isFirstCard={isFirstCard || false}
                         onVideoClick={() => setIsVideoModalOpen(true)}
                     />
-                </div>
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
@@ -136,14 +190,18 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                         duration: 0.8,
                         ease: [0.22, 1, 0.36, 1] as const,
                     }}
-                    className="absolute bottom-0 right-0 w-[85%] h-auto md:w-[50%] lg:w-[42%] bg-[#bd9b60] rounded-tl-3xl p-4 md:p-8 shadow-2xl flex flex-col justify-between min-h-[280px] md:min-h-[320px]"
+                    style={{
+                        transformStyle: "preserve-3d",
+                        transform: "translateZ(40px)",
+                    }}
+                    className="absolute bottom-0 right-0 w-[85%] h-auto md:w-[50%] lg:w-[42%] bg-[#bd9b60] rounded-tl-2xl p-4 md:p-8 shadow-2xl flex flex-col justify-between min-h-[280px] md:min-h-[320px]"
                 >
                     <div className="flex justify-center mb-3 md:mb-5">
                         <svg viewBox="0 0 280 70" className="w-48 h-12 md:w-64 md:h-16 lg:w-72 lg:h-20">
                             <path id={`curve-${project.id}`} d="M 20 55 Q 140 10 260 55" fill="transparent" />
                             <text className="text-sm md:text-lg lg:text-xl fill-[#2e2a2b] font-serif tracking-[0.15em]">
                                 <textPath href={`#curve-${project.id}`} startOffset="50%" textAnchor="middle">
-                                    project {["one", "two", "three", "four"][project.id - 1]}
+                                    project {["one", "two", "three", "four", "five", "six"][project.id - 1]}
                                 </textPath>
                             </text>
                         </svg>
