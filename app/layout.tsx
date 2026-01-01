@@ -22,7 +22,10 @@ export const metadata: Metadata = {
     description:
         "At Rebirth, a creative digital studio, every idea is a rebirth and every design an emotion. We craft digital products that inspire, engage and feel thoughtfully made.",
     icons: {
-        icon: "/favicon.svg",
+        icon: [
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/favicon.svg", type: "image/svg+xml" },
+        ],
     },
     openGraph: {
         title: "Rebirth Studio - Building Digital Products",
