@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         siteName: "Rebirth Studio",
         images: [
             {
-                url: "https://rebirthstudio.org/og-image.jpg",
+                url: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Rebirth Studio - Digital Products",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         title: "Rebirth Studio - Building Digital Products",
         description:
             "At Rebirth, a creative digital studio, every idea is a rebirth and every design an emotion. We craft digital products that inspire, engage and feel thoughtfully made.",
-        images: ["https://rebirthstudio.org/og-image.jpg"],
+        images: ["https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg"],
     },
 }
 
