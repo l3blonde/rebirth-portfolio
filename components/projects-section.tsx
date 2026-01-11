@@ -16,7 +16,7 @@ const projects = [
         tags: ["UX/UI", "AR/VR"],
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-desktop.mp4",
-        link: "https://www.figma.com/proto/okk60AWy59j2AJwdQj6GtN/JACQUEMUS-MVP?page-id=4500%3A1530&node-id=4500-2465&p=f&viewport=1544%2C859%2C0.32&t=1B5hJYTDqdW8Elnx-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4500%3A2465",
+        link: "https://www.figma.com/proto/okk60AWy59j2AJwdQj6GtN/JACQUEMUS-MVP?page-id=4500%3A1530&node-id=4579-1633&viewport=432%2C349%2C0.05&t=7cYa8FOghmp4Pa3F-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4579%3A2347",
     },
     {
         id: 2,
