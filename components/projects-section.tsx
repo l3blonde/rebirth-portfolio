@@ -34,7 +34,7 @@ const projects = [
         tags: ["AI/ML", "Python"],
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-desktop.mp4",
-        link: "https://marine-species-spotting.vercel.app",
+        link: "https://huggingface.co/spaces/ocean4/marine-species-ai",
     },
     {
         id: 4,
