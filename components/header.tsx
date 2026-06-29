@@ -65,36 +65,51 @@ export default function Header() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center gap-8">
-                        <button
-                            onClick={() => scrollToSection("about")}
-                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
-                        >
-                            About
-                        </button>
-                        <button
-                            onClick={() => scrollToSection("projects")}
-                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
-                        >
-                            Experiments
-                        </button>
-                        <button
-                            onClick={() => scrollToSection("learning-log")}
-                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
-                        >
-                            Research Log
-                        </button>
-                        <Link
-                            href="/cv"
-                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
-                        >
-                            CV
-                        </Link>
-                        <button
-                            onClick={openContactModal}
-                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
-                        >
-                            Contact
-                        </button>
+                        <div className="relative group">
+                            <button
+                                onClick={() => scrollToSection("about")}
+                                className="text-lg font-medium text-volcanic-ash/80 hover:text-black transition-colors duration-300 relative py-1"
+                            >
+                                About
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-volcanic-ash/80 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                            </button>
+                        </div>
+                        <div className="relative group">
+                            <button
+                                onClick={() => scrollToSection("projects")}
+                                className="text-lg font-medium text-volcanic-ash/80 hover:text-black transition-colors duration-300 relative py-1"
+                            >
+                                Experiments
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-volcanic-ash/80 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                            </button>
+                        </div>
+                        <div className="relative group">
+                            <button
+                                onClick={() => scrollToSection("learning-log")}
+                                className="text-lg font-medium text-volcanic-ash/80 hover:text-black transition-colors duration-300 relative py-1"
+                            >
+                                Research
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-volcanic-ash/80 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                            </button>
+                        </div>
+                        <div className="relative group">
+                            <Link
+                                href="/cv"
+                                className="text-lg font-medium text-volcanic-ash/80 hover:text-black transition-colors duration-300 relative py-1"
+                            >
+                                CV
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-volcanic-ash/80 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                            </Link>
+                        </div>
+                        <div className="relative group">
+                            <button
+                                onClick={openContactModal}
+                                className="text-lg font-medium text-volcanic-ash/80 hover:text-black transition-colors duration-300 relative py-1"
+                            >
+                                Contact
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-volcanic-ash/80 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+                            </button>
+                        </div>
                     </nav>
 
                     {/* Mobile Menu Button - 4 Squares */}
@@ -155,7 +170,7 @@ export default function Header() {
                                 {[
                                     { label: "About", section: "about" },
                                     { label: "Experiments", section: "projects" },
-                                    { label: "Research Log", section: "learning-log" },
+                                    { label: "Research", section: "learning-log" },
                                 ].map((item, index) => (
                                     <motion.button
                                         key={item.label}

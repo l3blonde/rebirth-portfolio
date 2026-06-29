@@ -24,7 +24,7 @@ export default function SkillsSection() {
             <section id="skills" className="relative min-h-screen bg-[#2E2A2B] overflow-hidden overflow-x-hidden">
                 {/* Mobile Layout */}
                 <div className="md:hidden flex flex-col px-4 sm:px-6 py-20">
-                    <h2 className="text-4xl sm:text-5xl font-serif text-[#f7f7f7] mb-8 tracking-wider break-words">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-wider text-[#f7f7f7] mb-8 break-words">
                         RESEARCH DOMAINS
                     </h2>
 
@@ -64,7 +64,7 @@ export default function SkillsSection() {
 
                     <div className="flex flex-col items-start pt-4">
                         <Button variant="secondary" onClick={() => setIsContactModalOpen(true)}>
-                            Collaborate
+                            Get in Touch
                         </Button>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ export default function SkillsSection() {
                 {/* Desktop layout */}
                 <div className="hidden md:grid md:grid-cols-[55%_45%] min-h-screen">
                     <div className="flex flex-col justify-center px-12 lg:px-16 py-24">
-                        <h2 className="text-6xl lg:text-7xl font-serif text-[#f7f7f7] mb-10 tracking-wider break-words">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-normal tracking-wider text-[#f7f7f7] mb-10 break-words">
                             RESEARCH DOMAINS
                         </h2>
 
@@ -107,7 +107,7 @@ export default function SkillsSection() {
 
                         <div className="flex items-center">
                             <Button variant="secondary" onClick={() => setIsContactModalOpen(true)}>
-                                Collaborate
+                                Get in Touch
                             </Button>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ export default function SkillsSection() {
             {/* Footer */}
             <footer className="bg-[#2E2A2B] border-t border-[#bd9b60]/20 px-4 sm:px-6 md:px-12 lg:px-16 py-8 overflow-x-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-[#f7f7f7]/70 font-sans text-sm">© 2026 Marianne — Rebirth</p>
+                    <p className="text-[#f7f7f7]/70 font-sans text-sm">© 2026 Rebirth Systems</p>
                     <div className="flex gap-6">
                         <a
                             href="https://www.linkedin.com/in/marianne-legrelle-520914146/"

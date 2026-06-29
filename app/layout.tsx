@@ -18,19 +18,13 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-    title: "Marianne Legrelle — AI, Computer Science & Human-Centred Systems Lab",
+    title: "Marianne L.-P. — AI, Computer Science & Human-Centred Systems Lab",
     description:
-        "Research portfolio of Marianne Legrelle focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
-    icons: {
-        icon: [
-            { url: "/favicon.ico", sizes: "any" },
-            { url: "/favicon.svg", type: "image/svg+xml" },
-        ],
-    },
+        "Research portfolio of Marianne L.-P. focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
     openGraph: {
-        title: "Marianne Legrelle — AI, Computer Science & Human-Centred Systems Lab",
+        title: "Marianne L.-P. — AI, Computer Science & Human-Centred Systems Lab",
         description:
-            "Research portfolio of Marianne Legrelle focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
+            "Research portfolio of Marianne L.-P. focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
         url: "https://rebirthstudio.org",
         siteName: "Rebirth Studio",
         images: [
@@ -38,7 +32,7 @@ export const metadata: Metadata = {
                 url: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Marianne Legrelle — Computational Systems & AI Lab",
+                alt: "Marianne L.-P. — Computational Systems & AI Lab",
             },
         ],
         locale: "en_US",
@@ -46,9 +40,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Marianne Legrelle — AI, Computer Science & Human-Centred Systems Lab",
+        title: "Marianne L.-P. — AI, Computer Science & Human-Centred Systems Lab",
         description:
-            "Research portfolio of Marianne Legrelle focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
+            "Research portfolio of Marianne L.-P. focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
         images: ["https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg"],
     },
 }
