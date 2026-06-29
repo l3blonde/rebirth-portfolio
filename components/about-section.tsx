@@ -122,9 +122,8 @@ export default function AboutSection() {
                         {/* Bio Text Column */}
                         <div className="flex flex-col justify-center gap-6 pr-2 md:pr-10 lg:pr-16">
                             <div className="space-y-2">
-                                <span className="font-mono text-xs text-volcanic-ash/70 uppercase tracking-wider block font-bold">academic background & goals</span>
                                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-volcanic-ash mb-2 font-normal leading-tight">
-                                    About Marianne
+                                    Academic Background & Goals
                                 </h2>
                                 <div className="h-[2px] w-16 bg-volcanic-ash/30 mt-2"></div>
                             </div>
