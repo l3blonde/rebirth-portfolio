@@ -4,6 +4,7 @@
 
 /* Add Rebirth Studio color palette */
 :root {
+  color-scheme: light !important;
   /* Updated with official Rebirth brand colors from brand guide */
   --volcanic-ash: #2e2a2b; /* Dark charcoal/brown - text, footer */
   --dune-gold: #bd9b60; /* Primary gold - header, accents, frames */

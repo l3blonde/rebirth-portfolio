@@ -10,6 +10,7 @@ import ContactModal from "./contact-modal"
 export default function AboutSection() {
     const [isContactModalOpen, setIsContactModalOpen] = useState(false)
     const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+    const [isPortraitActive, setIsPortraitActive] = useState(false)
 
     return (
         <>
@@ -18,14 +19,17 @@ export default function AboutSection() {
                     {/* Core Profile Grid */}
                     <div className="max-w-7xl mx-auto grid md:grid-cols-[40%_60%] gap-12 items-stretch">
                         {/* Profile Image Column: Floating transparent cutout with custom silhouette drop-shadow and formulas */}
-                        <div className="relative min-h-[350px] md:min-h-[450px] h-full w-full flex items-center justify-center group overflow-visible">
+                        <div 
+                            onClick={() => setIsPortraitActive(!isPortraitActive)}
+                            className="relative min-h-[350px] md:min-h-[450px] h-full w-full flex items-center justify-center group overflow-visible cursor-pointer select-none"
+                        >
                             {/* Floating Charcoal Formula Annotations (Kinetic drift on hover) */}
                             <div className="absolute inset-0 select-none pointer-events-none z-0 overflow-visible">
                                 {/* Formula 1: Gradient (Moves Inward/Down-Right) */}
                                 <motion.div 
                                     animate={{ y: [0, -6, 0] }}
                                     transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                                    className="absolute top-4 left-0 md:-left-6 font-serif italic text-xs md:text-sm font-bold text-volcanic-ash/55 transition-all duration-500 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:translate-x-8 group-hover:translate-y-8"
+                                    className={`absolute top-4 left-0 md:-left-6 font-serif italic text-xs md:text-sm font-bold transition-all duration-500 ${isPortraitActive ? "text-volcanic-ash/90 scale-110 translate-x-8 translate-y-8" : "text-volcanic-ash/55 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:translate-x-8 group-hover:translate-y-8"}`}
                                 >
                                     ∇ L(θ) = 0
                                 </motion.div>
@@ -34,7 +38,7 @@ export default function AboutSection() {
                                 <motion.div 
                                     animate={{ y: [0, 8, 0] }}
                                     transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1 }}
-                                    className="absolute top-12 right-0 md:-right-6 font-mono text-[10px] md:text-xs font-bold text-volcanic-ash/55 transition-all duration-500 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:-translate-x-8 group-hover:translate-y-8"
+                                    className={`absolute top-12 right-0 md:-right-6 font-mono text-[10px] md:text-xs font-bold transition-all duration-500 ${isPortraitActive ? "text-volcanic-ash/90 scale-110 -translate-x-8 translate-y-8" : "text-volcanic-ash/55 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:-translate-x-8 group-hover:translate-y-8"}`}
                                 >
                                     V - E + F = 2
                                 </motion.div>
@@ -43,7 +47,7 @@ export default function AboutSection() {
                                 <motion.div 
                                     animate={{ x: [0, -5, 0] }}
                                     transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 2 }}
-                                    className="absolute bottom-24 left-0 md:-left-6 font-serif italic text-xs md:text-sm font-bold text-volcanic-ash/55 transition-all duration-500 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:translate-x-8 group-hover:-translate-y-8"
+                                    className={`absolute bottom-24 left-0 md:-left-6 font-serif italic text-xs md:text-sm font-bold transition-all duration-500 ${isPortraitActive ? "text-volcanic-ash/90 scale-110 translate-x-8 -translate-y-8" : "text-volcanic-ash/55 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:translate-x-8 group-hover:-translate-y-8"}`}
                                 >
                                     ⟨u, v⟩ ∈ ℝ<sup>d</sup>
                                 </motion.div>
@@ -52,13 +56,13 @@ export default function AboutSection() {
                                 <motion.div 
                                     animate={{ x: [0, 6, 0] }}
                                     transition={{ repeat: Infinity, duration: 9, ease: "easeInOut", delay: 3 }}
-                                    className="absolute bottom-20 right-0 md:-right-6 font-mono text-[9px] md:text-[10px] font-bold text-volcanic-ash/55 transition-all duration-500 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:-translate-x-8 group-hover:-translate-y-8"
+                                    className={`absolute bottom-20 right-0 md:-right-6 font-mono text-[9px] md:text-[10px] font-bold transition-all duration-500 ${isPortraitActive ? "text-volcanic-ash/90 scale-110 -translate-x-8 -translate-y-8" : "text-volcanic-ash/55 group-hover:text-volcanic-ash/90 group-hover:scale-110 group-hover:-translate-x-8 group-hover:-translate-y-8"}`}
                                 >
                                     f: ℳ → ℝ<sup>2</sup>
                                 </motion.div>
 
                                 {/* Abstract hand-drawn coordinate axis behind the portrait (linearly expands and brightens on hover) */}
-                                <div className="absolute inset-0 flex items-center justify-center opacity-[0.12] scale-[0.88] group-hover:scale-[1.18] group-hover:opacity-[0.48] transition-all duration-[850ms] ease-out transform transform-gpu z-0 pointer-events-none">
+                                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-[850ms] ease-out transform transform-gpu z-0 pointer-events-none ${isPortraitActive ? "scale-[1.18] opacity-[0.48]" : "opacity-[0.12] scale-[0.88] group-hover:scale-[1.18] group-hover:opacity-[0.48]"}`}>
                                     <svg viewBox="0 0 200 200" className="w-full h-full text-volcanic-ash">
                                         <defs>
                                             <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -107,12 +111,12 @@ export default function AboutSection() {
                             </div>
 
                             {/* Transparent Cutout Portrait with custom drop shadow and scale transition */}
-                            <div className="relative w-full h-full flex items-center justify-center z-10 filter drop-shadow-[0_20px_35px_rgba(46,42,43,0.3)] transition-all duration-500 group-hover:scale-[1.08] group-hover:-translate-y-3">
+                            <div className={`relative w-full h-full flex items-center justify-center z-10 filter drop-shadow-[0_20px_35px_rgba(46,42,43,0.3)] transition-all duration-500 ${isPortraitActive ? "scale-[1.08] -translate-y-3" : "group-hover:scale-[1.08] group-hover:-translate-y-3"}`}>
                                 <Image
                                     src="/images/profile-photo-v2-transparent.png"
                                     alt="Marianne L.-P. Portrait"
                                     fill
-                                    className="object-contain grayscale-[100%] contrast-[1.08] brightness-[0.92] group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 transition-all duration-500"
+                                    className={`object-contain transition-all duration-500 ${isPortraitActive ? "grayscale-0 contrast-100 brightness-100" : "grayscale-[100%] contrast-[1.08] brightness-[0.92] group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100"}`}
                                     sizes="(max-width: 768px) 100vw, 40vw"
                                     priority
                                 />

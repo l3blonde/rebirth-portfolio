@@ -19,6 +19,9 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
     metadataBase: new URL("https://www.rebirthstudio.org"),
+    other: {
+        "color-scheme": "light",
+    },
     title: "Marianne L.-P. — AI, Computer Science & Human-Centred Systems Lab",
     description:
         "Research portfolio of Marianne L.-P. focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
