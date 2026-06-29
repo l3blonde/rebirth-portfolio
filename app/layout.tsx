@@ -18,6 +18,7 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
+    metadataBase: new URL("https://www.rebirthstudio.org"),
     title: "Marianne L.-P. — AI, Computer Science & Human-Centred Systems Lab",
     description:
         "Research portfolio of Marianne L.-P. focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
         siteName: "Rebirth Studio",
         images: [
             {
-                url: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg",
+                url: "/og-image.jpg",
                 width: 1200,
                 height: 630,
                 alt: "Marianne L.-P. — Computational Systems & AI Lab",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
         title: "Marianne L.-P. — AI, Computer Science & Human-Centred Systems Lab",
         description:
             "Research portfolio of Marianne L.-P. focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
-        images: ["https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg"],
+        images: ["/og-image.jpg"],
     },
 }
 
