@@ -132,8 +132,8 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 </svg>
                             </button>
 
-                            <h2 className="text-3xl font-serif text-volcanic-ash mb-2">Contact & Inquiries</h2>
-                            <p className="text-volcanic-ash/70 mb-8">Discuss research collaborations, academic opportunities, or other inquiries.</p>
+                            <h2 className="text-3xl font-serif text-volcanic-ash mb-2">Contact Me</h2>
+                            <p className="text-volcanic-ash/70 mb-8">Discuss research collaborations, academic opportunities, or other topics.</p>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
@@ -213,7 +213,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                                 </div>
 
                                 <Button type="submit" variant="primary" className="w-full" disabled={isSubmitting}>
-                                    {isSubmitting ? "Sending..." : "Send Inquiry"}
+                                    {isSubmitting ? "Sending..." : "Send Message"}
                                 </Button>
                             </form>
                         </motion.div>
