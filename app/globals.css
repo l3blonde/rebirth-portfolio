@@ -2,7 +2,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Add Rebirth Studio custom color palette */
+/* Add Rebirth Studio color palette */
 :root {
   /* Updated with official Rebirth brand colors from brand guide */
   --volcanic-ash: #2e2a2b; /* Dark charcoal/brown - text, footer */
