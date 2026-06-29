@@ -84,20 +84,19 @@ export default function AboutSection() {
                             viewport={{ once: true, margin: "-100px" }}
                             className="flex flex-col justify-center max-w-xl space-y-6 lg:space-y-8"
                         >
-                            <h3 className="text-3xl lg:text-4xl font-serif font-semibold text-volcanic-ash break-words">
-                                Hi, I am Marianne ! :)
+                            <h3 className="text-2xl lg:text-3xl font-serif font-normal text-volcanic-ash break-words">
+                                Hi, I am Marianne.
                             </h3>
 
                             <div className="space-y-4 lg:space-y-5 text-volcanic-ash font-sans text-base lg:text-lg leading-relaxed break-words">
-                                <p>Today, I study at Thomas More in the Bachelor of Digital Product Architect.</p>
-                                <p>Previously, I worked in blockchain and fintech at Kin, a Canadian messaging app.</p>
-                                <p>Beyond my current role, I am building a startup at the intersection of AI and creativity.</p>
-                                <p>You can reach me through the form below.</p>
+                                <p>I currently study Digital Product Architecture at Thomas More, focusing on the intersection of software engineering, UX systems, and emerging technologies. My academic journey is driven by a desire to understand not just how systems look, but how they perform, scale, and interact with complex human behaviours.</p>
+                                <p>Previously, I worked in fintech and blockchain integration at Kin, a Canadian messaging platform. This role exposed me to real-world distributed systems, performance optimization, and scalable API design in production environments.</p>
+                                <p>I am transitioning towards formal academic research in Computer Science and Artificial Intelligence, with active interests in Machine Learning systems, Human-Computer Interaction (HCI), Computational Geometry, and Intelligent Decision Systems.</p>
                             </div>
 
                             <div className="pt-2">
                                 <Button variant="primary" onClick={() => setIsContactModalOpen(true)}>
-                                    Work with me
+                                    Collaborate
                                 </Button>
                             </div>
                         </motion.div>
@@ -155,21 +154,53 @@ export default function AboutSection() {
 
                         {/* Bottom: Bio */}
                         <div className="w-full space-y-5 px-2">
-                            <h3 className="text-xl sm:text-2xl font-serif font-semibold text-volcanic-ash break-words">
-                                Hi, I am Marianne ! :)
+                            <h3 className="text-xl sm:text-2xl font-serif font-normal text-volcanic-ash break-words">
+                                Hi, I am Marianne.
                             </h3>
 
                             <div className="space-y-3 text-volcanic-ash font-sans text-sm leading-relaxed break-words">
-                                <p>Today, I study at Thomas More in the Bachelor of Digital Product Architect.</p>
-                                <p>Previously, I worked in blockchain and fintech at Kin, a Canadian messaging app.</p>
-                                <p>Beyond my current role, I am building a startup at the intersection of AI and creativity.</p>
-                                <p>You can reach me through the form below.</p>
+                                <p>I currently study Digital Product Architecture at Thomas More, focusing on the intersection of software engineering, UX systems, and emerging technologies. My academic journey is driven by a desire to understand not just how systems look, but how they perform, scale, and interact with complex human behaviours.</p>
+                                <p>Previously, I worked in fintech and blockchain integration at Kin, a Canadian messaging platform. This role exposed me to real-world distributed systems, performance optimization, and scalable API design in production environments.</p>
+                                <p>I am transitioning towards formal academic research in Computer Science and Artificial Intelligence, with active interests in Machine Learning systems, Human-Computer Interaction (HCI), Computational Geometry, and Intelligent Decision Systems.</p>
                             </div>
 
                             <div className="pt-2">
                                 <Button variant="primary" onClick={() => setIsContactModalOpen(true)}>
-                                    Work with me
+                                    Collaborate
                                 </Button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Computational Learning Log */}
+                    <div id="learning-log" className="mt-20 pt-16 border-t border-volcanic-ash/10">
+                        <h3 className="text-2xl lg:text-3xl font-serif font-normal text-volcanic-ash mb-4 text-center md:text-left">
+                            Computational Learning Log
+                        </h3>
+                        <p className="text-volcanic-ash/90 font-sans text-base lg:text-lg leading-relaxed max-w-3xl mb-8 text-center md:text-left">
+                            The Computational Learning Log documents my active exploration of computer science fundamentals, mathematical foundations, and system architectures. It serves as an academic record of self-directed research, progression, and practical insights gained during my studies.
+                        </p>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="bg-[#fcfbfa] border border-volcanic-ash/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <span className="font-mono text-xs text-[#bd9b60] uppercase tracking-wider block mb-2">Entry 01 — Vector Spaces</span>
+                                <h4 className="font-serif text-lg font-bold text-volcanic-ash mb-3">Vector Similarity & Embeddings</h4>
+                                <p className="text-sm font-sans text-volcanic-ash/80 leading-relaxed">
+                                    Visualising the dot product as a projection operation clarifies how modern recommendation algorithms match similarities geometrically in high-dimensional spaces.
+                                </p>
+                            </div>
+                            <div className="bg-[#fcfbfa] border border-volcanic-ash/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <span className="font-mono text-xs text-[#bd9b60] uppercase tracking-wider block mb-2">Entry 02 — Geometry Systems</span>
+                                <h4 className="font-serif text-lg font-bold text-volcanic-ash mb-3">3D Rotation & Transformations</h4>
+                                <p className="text-sm font-sans text-volcanic-ash/80 leading-relaxed">
+                                    Representing vertex operations as matrix multiplications makes three-dimensional object rotation in WebGL both computationally efficient and mathematically elegant.
+                                </p>
+                            </div>
+                            <div className="bg-[#fcfbfa] border border-volcanic-ash/10 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                                <span className="font-mono text-xs text-[#bd9b60] uppercase tracking-wider block mb-2">Entry 03 — Complexity</span>
+                                <h4 className="font-serif text-lg font-bold text-volcanic-ash mb-3">Algorithmic Space-Time Bounds</h4>
+                                <p className="text-sm font-sans text-volcanic-ash/80 leading-relaxed">
+                                    Moving matching operations from in-memory processing to indexed database layers changes retrieval complexity from $O(N)$ to $O(\log N)$ in recommendation pipelines.
+                                </p>
                             </div>
                         </div>
                     </div>

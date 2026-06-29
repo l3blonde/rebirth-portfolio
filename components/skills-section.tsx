@@ -7,23 +7,13 @@ import { Brain, Palette, Code2, Glasses, Linkedin, Mail } from "lucide-react"
 import ContactModal from "./contact-modal"
 import { Button } from "./button"
 
-const skills = [
-    {
-        name: "AI/ML",
-        icon: Brain,
-    },
-    {
-        name: "UX/UI",
-        icon: Palette,
-    },
-    {
-        name: "Development",
-        icon: Code2,
-    },
-    {
-        name: "AR/VR",
-        icon: Glasses,
-    },
+const domains = [
+    { name: "Artificial Intelligence", percentage: 80 },
+    { name: "Machine Learning", percentage: 70 },
+    { name: "Software Systems", percentage: 80 },
+    { name: "Linear Algebra", percentage: 60 },
+    { name: "Computational Geometry", percentage: 70 },
+    { name: "Human-Centred Interaction", percentage: 80 },
 ]
 
 export default function SkillsSection() {
@@ -34,35 +24,32 @@ export default function SkillsSection() {
             <section id="skills" className="relative min-h-screen bg-[#2E2A2B] overflow-hidden overflow-x-hidden">
                 {/* Mobile Layout */}
                 <div className="md:hidden flex flex-col px-4 sm:px-6 py-20">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#f7f7f7] mb-8 tracking-wider break-words">
-                        MY SKILLS
+                    <h2 className="text-4xl sm:text-5xl font-serif text-[#f7f7f7] mb-8 tracking-wider break-words">
+                        RESEARCH DOMAINS
                     </h2>
 
                     <p className="text-[#f7f7f7]/90 font-sans text-base leading-relaxed mb-10 break-words">
-                        I work across AI/ML, development and design, building for both the backend and the frontend. I shape
-                        experiences through UX and UI, and explore AR and VR to create new ways of engaging with the digital world
-                        using Python, Node.js, TypeScript, and modern frameworks.
+                        I investigate how computer science, machine learning, and mathematics can be synthesised to build intelligent, human-centred systems. My research spans convolutional networks, high-dimensional vector spaces, WebGL graphics, and adaptive user state machines.
                     </p>
 
-                    <div className="grid grid-cols-2 gap-6 mb-10">
-                        {skills.map((skill, index) => {
-                            const IconComponent = skill.icon
-                            return (
-                                <motion.div
-                                    key={skill.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.1, duration: 0.5 }}
-                                    viewport={{ once: true }}
-                                    className="flex flex-col items-center"
-                                >
-                                    <div className="w-20 h-20 rounded-full bg-[#bd9b60] flex items-center justify-center mb-3 shadow-lg">
-                                        <IconComponent className="w-9 h-9 text-[#2E2A2B]" strokeWidth={1.5} />
-                                    </div>
-                                    <span className="text-[#f7f7f7] font-sans text-sm">{skill.name}</span>
-                                </motion.div>
-                            )
-                        })}
+                    <div className="space-y-4 mb-10">
+                        {domains.map((domain, index) => (
+                            <div key={domain.name} className="space-y-1">
+                                <div className="flex justify-between text-xs font-mono text-[#f7f7f7]">
+                                    <span>{domain.name}</span>
+                                    <span className="text-[#bd9b60]">{domain.percentage}%</span>
+                                </div>
+                                <div className="h-1 w-full bg-[#f7f7f7]/10 rounded-full overflow-hidden">
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        whileInView={{ width: `${domain.percentage}%` }}
+                                        transition={{ delay: index * 0.05, duration: 0.8, ease: "easeOut" }}
+                                        viewport={{ once: true }}
+                                        className="h-full bg-[#bd9b60]"
+                                    />
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
                     <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden mb-10 shadow-2xl">
@@ -75,10 +62,9 @@ export default function SkillsSection() {
                         />
                     </div>
 
-                    <div className="flex flex-col items-start gap-6">
-                        <h3 className="text-2xl sm:text-3xl font-serif text-[#f7f7f7] break-words">Interested?</h3>
+                    <div className="flex flex-col items-start pt-4">
                         <Button variant="secondary" onClick={() => setIsContactModalOpen(true)}>
-                            Work With Me
+                            Collaborate
                         </Button>
                     </div>
                 </div>
@@ -87,47 +73,41 @@ export default function SkillsSection() {
                 <div className="hidden md:grid md:grid-cols-[55%_45%] min-h-screen">
                     <div className="flex flex-col justify-center px-12 lg:px-16 py-24">
                         <h2 className="text-6xl lg:text-7xl font-serif text-[#f7f7f7] mb-10 tracking-wider break-words">
-                            MY SKILLS
+                            RESEARCH DOMAINS
                         </h2>
 
                         <div className="grid grid-cols-2 gap-8 mb-12">
                             <p className="text-[#f7f7f7]/90 font-sans text-base lg:text-lg leading-relaxed break-words">
-                                I work across AI/ML, development and design, building for the backend with Python and Node.js, and the
-                                frontend with TypeScript and modern frameworks. I shape digital experiences through UX and UI, and
-                                explore AR and VR using tools like Next.js, Three.js and Blender to bring ideas to life.
+                                I investigate how computer science, machine learning, and mathematics can be synthesised to build intelligent, human-centred systems. My research spans convolutional networks, high-dimensional vector spaces, WebGL graphics, and adaptive user state machines.
                             </p>
                             <p className="text-[#f7f7f7]/90 font-sans text-base lg:text-lg leading-relaxed break-words">
-                                I work with Figma for design systems, Adobe Suite (Photoshop, Illustrator, Premiere Pro) for creative
-                                work, and Canva for rapid prototyping. My practice is grounded in clarity, curiosity and thoughtful
-                                craft. I aim to make digital work feel simple, human and meaningful.
+                                I explore the intersection of theory and application using Python, TypeScript, PyTorch, and Next.js. My academic trajectory is focused on constructing software architectures grounded in mathematical reasoning and computational geometry.
                             </p>
                         </div>
 
-                        <div className="flex gap-8 mb-16">
-                            {skills.map((skill, index) => {
-                                const IconComponent = skill.icon
-                                return (
-                                    <motion.div
-                                        key={skill.name}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: index * 0.1, duration: 0.5 }}
-                                        viewport={{ once: true }}
-                                        className="flex flex-col items-center"
-                                    >
-                                        <div className="w-24 h-24 rounded-full bg-[#bd9b60] flex items-center justify-center mb-4 shadow-lg hover:scale-110 transition-transform">
-                                            <IconComponent className="w-11 h-11 text-[#2E2A2B]" strokeWidth={1.5} />
-                                        </div>
-                                        <span className="text-[#f7f7f7] font-sans text-base">{skill.name}</span>
-                                    </motion.div>
-                                )
-                            })}
+                        <div className="space-y-4 mb-16 max-w-xl">
+                            {domains.map((domain, index) => (
+                                <div key={domain.name} className="space-y-1.5">
+                                    <div className="flex justify-between text-base font-mono text-[#f7f7f7]">
+                                        <span>{domain.name}</span>
+                                        <span className="text-[#bd9b60]">{domain.percentage}%</span>
+                                    </div>
+                                    <div className="h-1.5 w-full bg-[#f7f7f7]/10 rounded-full overflow-hidden">
+                                        <motion.div
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: `${domain.percentage}%` }}
+                                            transition={{ delay: index * 0.05, duration: 1, ease: "easeOut" }}
+                                            viewport={{ once: true }}
+                                            className="h-full bg-[#bd9b60]"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
                         </div>
 
-                        <div className="flex items-center gap-8">
-                            <h3 className="text-4xl font-serif text-[#f7f7f7] break-words">Interested?</h3>
+                        <div className="flex items-center">
                             <Button variant="secondary" onClick={() => setIsContactModalOpen(true)}>
-                                Work With Me
+                                Collaborate
                             </Button>
                         </div>
                     </div>
@@ -147,7 +127,7 @@ export default function SkillsSection() {
             {/* Footer */}
             <footer className="bg-[#2E2A2B] border-t border-[#bd9b60]/20 px-4 sm:px-6 md:px-12 lg:px-16 py-8 overflow-x-hidden">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-[#f7f7f7]/70 font-sans text-sm">© 2025 Rebirth Studio. All rights reserved.</p>
+                    <p className="text-[#f7f7f7]/70 font-sans text-sm">© 2026 Marianne — Rebirth</p>
                     <div className="flex gap-6">
                         <a
                             href="https://www.linkedin.com/in/marianne-legrelle-520914146/"

@@ -18,9 +18,9 @@ const workSans = Work_Sans({
 })
 
 export const metadata: Metadata = {
-    title: "Rebirth Studio - Building Digital Products",
+    title: "Marianne Legrelle — AI, Computer Science & Human-Centred Systems Lab",
     description:
-        "At Rebirth, a creative digital studio, every idea is a rebirth and every design an emotion. We craft digital products that inspire, engage and feel thoughtfully made.",
+        "Research portfolio of Marianne Legrelle focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
     icons: {
         icon: [
             { url: "/favicon.ico", sizes: "any" },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
         ],
     },
     openGraph: {
-        title: "Rebirth Studio - Building Digital Products",
+        title: "Marianne Legrelle — AI, Computer Science & Human-Centred Systems Lab",
         description:
-            "At Rebirth, a creative digital studio, every idea is a rebirth and every design an emotion. We craft digital products that inspire, engage and feel thoughtfully made.",
+            "Research portfolio of Marianne Legrelle focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
         url: "https://rebirthstudio.org",
         siteName: "Rebirth Studio",
         images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
                 url: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg",
                 width: 1200,
                 height: 630,
-                alt: "Rebirth Studio - Digital Products",
+                alt: "Marianne Legrelle — Computational Systems & AI Lab",
             },
         ],
         locale: "en_US",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Rebirth Studio - Building Digital Products",
+        title: "Marianne Legrelle — AI, Computer Science & Human-Centred Systems Lab",
         description:
-            "At Rebirth, a creative digital studio, every idea is a rebirth and every design an emotion. We craft digital products that inspire, engage and feel thoughtfully made.",
+            "Research portfolio of Marianne Legrelle focusing on the intersection of mathematics, machine learning, software systems, and human-computer interaction (HCI).",
         images: ["https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/og-image.jpg"],
     },
 }

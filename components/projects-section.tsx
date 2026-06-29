@@ -11,48 +11,53 @@ import VideoPreview from "./video-preview"
 const projects = [
     {
         id: 1,
-        title: "Dream Your Bag",
-        description: "Interactive 3D bag builder with AR/VR features for personalized Jacquemus bags.",
-        tags: ["UX/UI", "AR/VR"],
-        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-mobile.mp4",
-        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-desktop.mp4",
-        link: "https://www.figma.com/proto/okk60AWy59j2AJwdQj6GtN/JACQUEMUS-MVP?page-id=4500%3A1530&node-id=4500-2465&p=f&viewport=1544%2C859%2C0.32&t=1B5hJYTDqdW8Elnx-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=4500%3A2465",
+        title: "Mathematical AI Recommendation Engine",
+        researchQuestion: "How can vector mathematics and spatial geometry be combined to compute real-time relevance for user-matching models?",
+        insight: "Combining high-dimensional vector embeddings with coordinate constraints reduces API latency while maintaining high precision.",
+        tags: ["FastAPI", "PostgreSQL", "Next.js", "Vector Math"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-desktop.mp4",
+        link: "https://seafolio-dive-app.vercel.app",
     },
     {
         id: 2,
-        title: "BlueWave",
-        description: "Mobile app for divers to explore locations, discover marine species, and connect underwater.",
-        tags: ["UX/UI", "Mobile"],
-        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-mobile.mp4",
-        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-2-desktop.mp4",
-        link: "https://dive-app-omega.vercel.app",
+        title: "Fine-Tuned Marine Species Classifier",
+        researchQuestion: "Can lightweight computer vision models fine-tuned on a 10,000+ marine species image dataset identify species with high precision?",
+        insight: "Fine-tuning lightweight models on over 10,000 high-contrast marine images achieves high classification accuracy.",
+        tags: ["Computer Vision", "PyTorch", "Hugging Face", "Gradio"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-desktop.mp4",
+        link: "https://huggingface.co/spaces/ocean4/marine-species-ai",
     },
     {
         id: 3,
-        title: "Marine AI Recognition",
-        description: "AI platform identifying marine species with habitat details and safety information.",
-        tags: ["AI/ML", "Python"],
-        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-mobile.mp4",
-        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-3-desktop.mp4",
-        link: "https://marine-species-spotting.vercel.app",
+        title: "Geometric Interaction Engine",
+        researchQuestion: "How can interactive three-dimensional geometry improve spatial reasoning and mathematical exploration?",
+        insight: "Visualising topological properties (e.g. V - E + F = 2) interactively reduces cognitive load when studying spatial mathematics.",
+        tags: ["WebGL", "Three.js", "Computational Geometry"],
+        videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-mobile.mp4",
+        videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-1-desktop.mp4",
+        link: "https://seafolio-dive-app.vercel.app",
     },
     {
         id: 4,
-        title: "Sereno",
-        description: "PWA for Porsche EV drivers offering guided breathing exercises during charging.",
-        tags: ["UX/UI", "Next.js"],
+        title: "Sereno: CarPlay Wellness PWA",
+        researchQuestion: "How can interface state machines and ambient 3D environments adapt to CarPlay standards to support driver wellness?",
+        insight: "Synchronising client-side service workers with GSAP-driven breathing animations ensures full offline reliability for automotive displays.",
+        tags: ["Next.js 15", "CarPlay", "Three.js", "State Machines"],
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-4-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-4-desktop.mp4",
         link: "https://sereno-app-three.vercel.app",
     },
     {
-        id: 6,
-        title: "Pauline",
-        description: "Pauline is an AI agent app designed to help elderly people feel safe, never lost, and never alone.",
-        tags: ["UX/UI", "AI", "Python"],
+        id: 5,
+        title: "Human-Centred AI Task Assistant",
+        researchQuestion: "How can conversational agents support focus by scaffolding a 'one high-impact task per day' methodology on mobile platforms?",
+        insight: "Restricting daily interactive options to a single major task mentored by a conversational agent mitigates task paralysis.",
+        tags: ["React Native", "Expo", "Zustand", "Generative AI"],
         videoMobile: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-6-mobile.mp4",
         videoDesktop: "https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/project-6-desktop.mp4",
-        link: "#",
+        link: "https://github.com/l3blonde/fileyourfacts-todo-app",
     },
 ]
 
@@ -80,9 +85,9 @@ export default function ProjectsSection() {
     return (
         <section id="projects" className="relative py-16 md:py-24 bg-[#f5f1ec]">
             <div className="max-w-[100vw] mx-auto px-4 md:px-8">
-                <div className="max-w-7xl mx-auto mb-12 md:mb-16 flex items-center justify-between">
-                    <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-wider md:tracking-[0.2em] text-[#2e2a2b]">
-                        FEATURED PROJECTS
+                <div className="max-w-7xl mx-auto mb-10 md:mb-12 flex items-center justify-between">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-wider text-[#2e2a2b]">
+                        COMPUTATIONAL EXPERIMENTS
                     </h2>
 
                     <div className="hidden lg:flex gap-4">
@@ -111,7 +116,7 @@ export default function ProjectsSection() {
                     className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 md:gap-6 pb-4"
                 >
                     {projects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} isFirstCard={index === 0} />
+                        <ProjectCard key={project.id} project={project} index={index} isFirstCard={index === 0} />
                     ))}
                 </div>
             </div>
@@ -119,7 +124,7 @@ export default function ProjectsSection() {
     )
 }
 
-function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; isFirstCard?: boolean }) {
+function ProjectCard({ project, index, isFirstCard }: { project: (typeof projects)[0]; index: number; isFirstCard?: boolean }) {
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false)
     const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -194,35 +199,42 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                         transformStyle: "preserve-3d",
                         transform: "translateZ(40px)",
                     }}
-                    className="absolute bottom-0 right-0 w-[85%] h-auto md:w-[50%] lg:w-[42%] bg-[#bd9b60] rounded-tl-2xl p-4 md:p-8 shadow-2xl flex flex-col justify-between min-h-[280px] md:min-h-[320px]"
+                    className="absolute bottom-0 right-0 w-[85%] h-auto md:w-[50%] lg:w-[42%] bg-[#bd9b60] rounded-tl-2xl p-4 md:p-6 shadow-2xl flex flex-col justify-between min-h-[280px] md:min-h-[320px]"
                 >
-                    <div className="flex justify-center mb-3 md:mb-5">
-                        <svg viewBox="0 0 280 70" className="w-48 h-12 md:w-64 md:h-16 lg:w-72 lg:h-20">
+                    <div className="flex justify-center mb-2">
+                        <svg viewBox="0 0 280 70" className="w-48 h-10 md:w-64 md:h-12 lg:w-72 lg:h-14">
                             <path id={`curve-${project.id}`} d="M 20 55 Q 140 10 260 55" fill="transparent" />
-                            <text className="text-sm md:text-lg lg:text-xl fill-[#2e2a2b] font-serif tracking-[0.15em]">
+                            <text className="text-xs md:text-sm fill-[#2e2a2b] font-serif tracking-[0.15em]">
                                 <textPath href={`#curve-${project.id}`} startOffset="50%" textAnchor="middle">
-                                    project {["one", "two", "three", "four", "five", "six"][project.id - 1]}
+                                    experiment {["one", "two", "three", "four", "five"][index]}
                                 </textPath>
                             </text>
                         </svg>
                     </div>
 
-                    <h3 className="text-xl md:text-3xl lg:text-4xl font-serif text-[#2e2a2b] mb-2 md:mb-3 text-center leading-tight">
+                    <h3 className="text-xl md:text-2xl font-serif text-[#2e2a2b] mb-2 text-center leading-tight">
                         {project.title}
                     </h3>
 
-                    <p className="text-[#2e2a2b] text-xs md:text-base leading-relaxed mb-3 md:mb-4 text-center line-clamp-2">
-                        {project.description}
-                    </p>
+                    <div className="space-y-2 mb-4">
+                        <p className="text-[#2e2a2b] text-[11px] leading-relaxed text-center font-sans">
+                            <span className="font-semibold block uppercase text-[9px] tracking-wider text-[#2e2a2b]/70 font-mono">Research Question</span>
+                            {project.researchQuestion}
+                        </p>
+                        <p className="text-[#2e2a2b] text-[11px] leading-relaxed text-center font-sans">
+                            <span className="font-semibold block uppercase text-[9px] tracking-wider text-[#2e2a2b]/70 font-mono">Key Insight</span>
+                            {project.insight}
+                        </p>
+                    </div>
 
-                    <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-3 md:mb-5">
-                        {project.tags.map((tag, index) => (
+                    <div className="flex flex-wrap justify-center gap-1.5 md:gap-2 mb-4">
+                        {project.tags.map((tag, idx) => (
                             <span
-                                key={index}
-                                className="bg-[#e5d4b8] rounded-full px-3 py-1 text-[#2e2a2b] text-xs md:text-sm whitespace-nowrap"
+                                key={idx}
+                                className="bg-[#e5d4b8] rounded-full px-3 py-1 text-[#2e2a2b] text-xs font-mono whitespace-nowrap"
                             >
-                {tag}
-              </span>
+                                {tag}
+                            </span>
                         ))}
                     </div>
 
@@ -230,9 +242,9 @@ function ProjectCard({ project, isFirstCard }: { project: (typeof projects)[0]; 
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 bg-[#e5d4b8] text-[#2e2a2b] text-xs md:text-base font-medium py-2 md:py-2.5 px-4 md:px-6 rounded-full hover:gap-3 transition-all duration-300 shadow-md"
+                        className="flex items-center justify-center gap-2 bg-[#e5d4b8] text-[#2e2a2b] text-xs font-medium py-2 md:py-2.5 px-4 md:px-6 rounded-full hover:gap-3 transition-all duration-300 shadow-md font-mono"
                     >
-                        website link <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+                        view repository / demo <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
                     </Link>
                 </motion.div>
             </motion.div>

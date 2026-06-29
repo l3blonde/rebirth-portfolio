@@ -1,104 +1,34 @@
 "use client"
 
-import { useRef, useState } from "react"
 import Button from "./button"
-import VideoControls from "./video-controls"
-import Image from "next/image"
 import Link from "next/link"
+import ClayGridCanvas from "./clay-grid-canvas"
 
 export default function HeroSection() {
-    const videoRef = useRef<HTMLVideoElement>(null)
-    const [isPlaying, setIsPlaying] = useState(false)
-    const [isMuted, setIsMuted] = useState(true)
-    const [showVideo, setShowVideo] = useState(false)
-
-    const handlePlayPause = () => {
-        if (videoRef.current) {
-            if (isPlaying) {
-                videoRef.current.pause()
-                setIsPlaying(false)
-            } else {
-                videoRef.current.play().catch((error) => {
-                    console.error("Video play failed:", error)
-                })
-                setIsPlaying(true)
-                setShowVideo(true)
-            }
-        }
-    }
-
-    const handleMuteToggle = () => {
-        if (videoRef.current) {
-            videoRef.current.muted = !isMuted
-            setIsMuted(!isMuted)
-        }
-    }
-
     return (
-        <section id="hero" className="relative min-h-screen w-full overflow-hidden overflow-x-hidden">
-            {!showVideo && (
-                <>
-                    <Image
-                        src="/images/hero-poster-desktop.jpg"
-                        alt="Hero background"
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 0vw, 100vw"
-                        className="hidden md:block object-cover"
-                    />
-                    <Image
-                        src="/images/hero-poster-mobile.jpg"
-                        alt="Hero background"
-                        fill
-                        priority
-                        sizes="(min-width: 768px) 0vw, 100vw"
-                        className="block md:hidden object-cover"
-                    />
-                </>
-            )}
+        <section id="hero" className="relative min-h-screen w-full overflow-hidden overflow-x-hidden bg-[#2E2A2B] flex items-center">
+            {/* Interactive Clay Voxel Grid Backdrop */}
+            <div className="hidden md:block absolute inset-y-0 right-0 w-1/2 h-full z-0 opacity-80 pointer-events-auto">
+                <ClayGridCanvas />
+            </div>
 
-            <video
-                ref={videoRef}
-                loop
-                muted={isMuted}
-                playsInline
-                preload="none"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                    showVideo ? "opacity-100" : "opacity-0"
-                }`}
-            >
-                <source
-                    src="https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/hero-bg-desktop.mp4"
-                    type="video/mp4"
-                    media="(min-width: 768px)"
-                />
-                <source src="https://xu5qaaigiohvkyk8.public.blob.vercel-storage.com/hero-bg-mobile.mp4" type="video/mp4" />
-            </video>
+            <div className="relative z-10 flex flex-col px-4 sm:px-6 md:px-12 lg:px-16 w-full max-w-7xl mx-auto pt-[93px]">
+                <div className="max-w-full md:max-w-[55%]">
+                    <h1 className="font-serif text-[32px] sm:text-[40px] md:text-5xl lg:text-6xl text-[#f7f7f7] mb-6 leading-tight max-w-full break-words">
+                        Designing Intelligent Systems
+                    </h1>
+                    <p className="text-[#f7f7f7]/90 font-sans text-base lg:text-lg leading-relaxed max-w-full mb-8 break-words">
+                        I investigate how mathematics, machine learning, and software engineering can be synthesised to build intelligent, human-centred systems. My work focuses on computational geometry, recommendation algorithms, computer vision, and scalable software architectures.
+                    </p>
 
-            <div className="absolute inset-0 bg-black/40" />
-
-            <div className="relative z-10 flex flex-col min-h-screen px-4 sm:px-6 md:px-12 lg:px-16 pt-[93px] max-w-full overflow-x-hidden">
-                <div className="mt-auto pb-8 md:pb-12">
-                    <div className="max-w-full md:max-w-3xl mb-8 md:mb-12">
-                        <h1 className="font-serif text-[28px] sm:text-[32px] md:text-5xl lg:text-6xl text-blanc mb-6 leading-tight max-w-full break-words">
-                            Building Digital Products
-                        </h1>
-                        <p className="font-sans text-sm sm:text-base md:text-lg text-blanc/90 leading-relaxed max-w-full md:max-w-2xl mb-8 break-words">
-                            At Rebirth, a creative digital studio, every idea is a rebirth and every design an emotion. We craft
-                            digital products that inspire, engage and feel thoughtfully made.
-                        </p>
-
-                        <Link href="/cv" target="_blank" rel="noopener noreferrer">
-                            <Button variant="secondary">View My CV</Button>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/cv">
+                            <Button variant="secondary">View CV</Button>
                         </Link>
+                        <a href="https://github.com/l3blonde" target="_blank" rel="noopener noreferrer">
+                            <Button variant="secondary">GitHub</Button>
+                        </a>
                     </div>
-
-                    <VideoControls
-                        isPlaying={isPlaying}
-                        isMuted={isMuted}
-                        onPlayPause={handlePlayPause}
-                        onMuteToggle={handleMuteToggle}
-                    />
                 </div>
             </div>
         </section>

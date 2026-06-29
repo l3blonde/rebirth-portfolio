@@ -29,6 +29,7 @@ export default function Header() {
         }
 
         window.addEventListener("scroll", handleScroll)
+        handleScroll() // Trigger on mount to set initial active section
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
@@ -74,8 +75,20 @@ export default function Header() {
                             onClick={() => scrollToSection("projects")}
                             className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
                         >
-                            Projects
+                            Experiments
                         </button>
+                        <button
+                            onClick={() => scrollToSection("learning-log")}
+                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
+                        >
+                            Research Log
+                        </button>
+                        <Link
+                            href="/cv"
+                            className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
+                        >
+                            CV
+                        </Link>
                         <button
                             onClick={openContactModal}
                             className="text-lg text-volcanic-ash hover:opacity-70 transition-opacity"
@@ -93,6 +106,11 @@ export default function Header() {
                         <div className="grid grid-cols-2 gap-[3px] w-full h-full">
                             <div
                                 className={`rounded-[2px] transition-colors ${
+                                    activeSection === "hero" ? "bg-volcanic-ash" : "bg-sandy-white"
+                                }`}
+                            ></div>
+                            <div
+                                className={`rounded-[2px] transition-colors ${
                                     activeSection === "about" ? "bg-volcanic-ash" : "bg-sandy-white"
                                 }`}
                             ></div>
@@ -104,11 +122,6 @@ export default function Header() {
                             <div
                                 className={`rounded-[2px] transition-colors ${
                                     activeSection === "skills" ? "bg-volcanic-ash" : "bg-sandy-white"
-                                }`}
-                            ></div>
-                            <div
-                                className={`rounded-[2px] transition-colors ${
-                                    activeSection === "hero" ? "bg-volcanic-ash" : "bg-sandy-white"
                                 }`}
                             ></div>
                         </div>
@@ -141,8 +154,8 @@ export default function Header() {
                             <div className="grid grid-cols-2 gap-4">
                                 {[
                                     { label: "About", section: "about" },
-                                    { label: "Projects", section: "projects" },
-                                    { label: "Skills", section: "skills" },
+                                    { label: "Experiments", section: "projects" },
+                                    { label: "Research Log", section: "learning-log" },
                                 ].map((item, index) => (
                                     <motion.button
                                         key={item.label}
@@ -163,17 +176,32 @@ export default function Header() {
                                     </motion.button>
                                 ))}
 
-                                {/* Contact button as separate element */}
+                                {/* CV link button */}
+                                <Link href="/cv" className="w-full h-full">
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 10 }}
+                                        transition={{ delay: 3 * 0.05, duration: 0.3 }}
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="h-32 rounded-[8px] text-xl font-sans transition-colors bg-sea-salt text-volcanic-ash hover:bg-dune-gold/50 flex items-center justify-center cursor-pointer"
+                                    >
+                                        CV
+                                    </motion.div>
+                                </Link>
+
+                                {/* Contact button */}
                                 <motion.button
                                     key="contact"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
-                                    transition={{ delay: 3 * 0.05, duration: 0.3 }}
+                                    transition={{ delay: 4 * 0.05, duration: 0.3 }}
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={openContactModal}
-                                    className="h-32 rounded-[8px] text-xl font-sans transition-colors bg-sea-salt text-volcanic-ash hover:bg-dune-gold/50"
+                                    className="col-span-2 h-20 rounded-[8px] text-xl font-sans transition-colors bg-sea-salt text-volcanic-ash hover:bg-dune-gold/50"
                                 >
                                     Contact
                                 </motion.button>
